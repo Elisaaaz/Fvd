@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* fonts */
+@font-face {
+    font-family: 'inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Inter-Medium.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Inter-Bold.woff2') format('woff2');
+}
+
+
+
+body {
+    background-color: white;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+
+    font-family: 'inter';
+    /* font-size: 40%; */
+    text-transform: uppercase;
+    font-weight: 400;
+    font-style: normal;
+}
+
+p,
+h4,
+a {
+    /* font-size: 80%; */
+    font-family: 'inter';
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* navigatiebalk */
+nav {
+    border-bottom: 0.1em solid black;
+    position: fixed;
+    background-color: white;
+    width: 24.5em;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0em;
+    padding: 0.5em;
+}
+
+nav ul img {
+    width: 1.5em;
+}
+
+nav li:nth-child(2) {
+    margin-right: auto;
+}
+
+nav li:nth-child(3) {
+    margin-right: auto;
+}
+
+/* list style */
+ul {
+    padding: 0em;
+}
+
+ul li {
+    list-style: none;
+}
+
+/* links style */
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
+a:focus,
+a:hover,
+a:active {
+    text-decoration: underline;
+}
+
+/* campaign header */
+
+.campaignheader ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+}
+
+.campaignheader li {
+    border: 0.1em solid black;
+    border-left: none;
+}
+
+.campaignheader img {
+    width: 100%;
+    height: 40em;
+    object-fit: cover;
+}
+
+.campaignheader li:first-of-type div {
+    position: absolute;
+    top: 9em;
+    left: 3em;
+}
+
+.campaignheader li:nth-of-type(2) div {
+    position: absolute;
+    top: 9em;
+    right: 28em;
+}
+
+.campaignheader h3 {
+    font-size: 1em;
+}
+
+.campaignheader h3::before {
+    content: "▪︎ ";
+}
+
+.campaignheader h3::after {
+    content: " →";
+
+    /* bonus */
+    display: inline-block;
+    scale: 2;
+    transform-origin: left center;
+}
+
+/* carrousel homepage new arrivals  */
+.carrousel {
+    display: flex;
+    gap: .5em;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain auto;
+}
+
+.carrousel ul {
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.carrousel li img {
+    width: 18em;
+}
+
+.newarrivals div {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* grid homepage blog posts */
+.bloggrid ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));  /* bron: Auto-fit in blog grid: https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/ */
+
+    
+    /* grid-template-columns: (repeat(auto-fit, [breedte fr]));
+    min-width: [breedte min];
+    max-width: [breedte max];
+    grid-auto-flow: dense; */
+
+}
+
+.bloggrid article {
+    border: 0.1em solid black;
+    border-bottom: none;
+    border-right: none;
+}
+
+.bloggrid img {
+    width: 100%;
+}
+
+/* footer navigatie */
+form input {
+    border: none;
+    border-bottom: 0.1em solid black;
+    height: 3em;
+    width: 100%;
+}
+
+form button {
+    border: none;
+    border-radius: 10em;
+    height: 2em;
+    background-color: #00ff0f;
+    margin-top: 1em;
+    width: 100%;
+}
+
+
+/* grid in footer navigatie */
+.footergrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+}
+
+
+.footergrid div {
+    padding: 2em;
+    border: 0.1em solid black;
+    border-right: none;
+    border-bottom: none;
+}
+
+/* onderste balk in footer */
+.footerbottom {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5em;
+    border: 0.1em solid black;
+}
+
+.footerbottom li {
+    display: inline;
+}
+
+.footerbottom ul {
+    margin-left: auto;
+}
+
+.footerbottom a img {
+    display: block;
+    margin-left: 1em;
+    width: 1.5em;
+}
