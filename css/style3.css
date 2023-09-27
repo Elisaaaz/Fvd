@@ -1,0 +1,112 @@
+/* headings  */
+h1::before {
+    content: "▪︎ ";
+}
+
+/* list style */
+ul {
+    padding: 0em;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+/* beschrijving upcomingreleases */
+.textcontainer {
+    padding: 1em;
+    border-top: 0.1em solid var(--color-border);
+    max-height: 6em;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.textcontainer p{
+    width: 60%;
+    /* margin-right: 45em; */
+    padding: 1em 0em 1em 0em;
+}
+
+.textcontainer button{
+  background: none;
+  border: none;
+}
+
+
+/* product aantal */
+.productamount {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    border-top: 0.1em solid var(--color-border);
+}
+
+/* grid products */
+.productgrid ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-style: solid;
+    border-width: 0.1em 0em 0;
+    border-color: var(--color-border);
+
+    /* grid-template-columns: repeat(auto-fit, minmax(15em, 1fr)); */
+    /* gap: 0.1em; */
+    /* background-color: var(--color-button); */
+    /* bron: Auto-fit in blog grid: https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/ */
+
+
+    /* grid-template-columns: (repeat(auto-fit, [breedte fr]));
+    min-width: [breedte min];
+    max-width: [breedte max];
+    grid-auto-flow: dense; */
+}
+
+
+.productgrid li {
+    border-style: solid;
+    border-width: 0em 0.1em 0.1em 0em;
+    border-color: var(--color-border);
+    background-color: var(--color-background);
+
+    /* border: 0.1em solid var(--color-border);
+    border-right: none;
+    border-bottom: none; */
+}
+
+.productgrid img {
+    width: 100%;
+    order: -3;
+}
+
+.productgrid a {
+    display: flex;
+    flex-direction: column;
+}
+
+.productgrid h4,
+.productgrid p {
+    padding: 0.5em 1em 1em 1em;
+}
+
+.productgrid h3 {
+    padding: 1em 0.5em 0em 1em;
+}
+
+.productgrid h3::before {
+    content: "▪︎ ";
+}
+
+
+/* grid products mobiel scherm */
+@media (width> 32em) {
+    .productgrid ul {
+        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    }}
+
+    /* product aantal mobiel scherm */
+    @media (max-width: 36em) {
+        .productamount {
+            display: none;
+        }
+    }

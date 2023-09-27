@@ -1,0 +1,158 @@
+/* list style */
+ul {
+    padding: 0em;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+/* campaign header */
+.campaignheader h3, .campaignheader h4, .campaignheader p{
+    background-color: var(--color-background);
+    margin: 0.5em;
+    padding: 0.4em;
+}
+
+.campaignheader ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+}
+
+.campaignheader li {
+    border: 0.1em solid var(--color-border);
+    border-left: none;
+    position: relative;
+}
+
+.campaignheader img {
+    width: 100%;
+    height: 40em;
+    object-fit: cover;
+    display: block;
+}
+
+.campaignheader li section {
+    position: absolute;
+    top: 2em;
+    left: 2em;
+}
+
+.campaignheader h3::before {
+    content: "▪︎ ";
+}
+
+.campaignheader h4::after {
+    content: " →";
+}
+
+    /* bonus
+    display: inline-block;
+    scale: 1.5;
+    transform-origin: left center;
+} */
+
+
+/* carrousel new arrivals  */
+.carrousel {
+    display: flex;
+    gap: 1em;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain auto;
+    margin: 1.5em;
+    margin-right: 0em;
+}
+
+.carrousel ul {
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.carrousel li img {
+    width: 18em;
+}
+
+.carrousel a :not(img){
+    padding: 0.2em 0em 0em 1em;
+}
+
+.carrousel a {
+    display: flex;
+    flex-direction: column;
+}
+
+.carrousel img {
+    order: -3;
+}
+
+.newarrivals section h3::before {
+    content: "▪︎ ";
+}
+
+.newarrivals section {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5em;
+}
+
+
+/* grid blog posts */
+.bloggrid ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-style:solid;
+    border-width:0.1em 0em 0em;
+    border-color: var(--color-border);
+
+    /* grid-template-columns: repeat(auto-fit, minmax(15em, 1fr)); */
+    /* gap: 0.1em; */
+    /* background-color: var(--color-button); */
+    /* bron: Auto-fit in blog grid: https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/ */
+
+
+    /* grid-template-columns: (repeat(auto-fit, [breedte fr]));
+    min-width: [breedte min];
+    max-width: [breedte max];
+    grid-auto-flow: dense; */
+}
+
+/* bron: Auto-fit in blog grid: https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/ */
+
+.bloggrid li {
+    border-style:solid;
+    border-width:0em 0.1em 0.1em 0em;
+    border-color: var(--color-border);
+    background-color: var(--color-background);
+}
+
+.bloggrid img {
+    width: 100%;
+    order: -3;
+}
+
+.bloggrid a {
+    display: flex;
+    flex-direction: column;
+}
+
+.bloggrid h3{
+padding: 1em 1em 0em 1em;
+}
+
+.bloggrid p{
+    padding: 0.5em 1em 3em 1em;
+}
+
+.bloggrid h3::before {
+    content: "▪︎ ";
+}
+
+/* voor mobiel scherm */
+@media (width> 32em) {
+    .bloggrid ul {
+        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    }
+}
