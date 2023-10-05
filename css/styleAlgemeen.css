@@ -1,0 +1,537 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Fonts */
+@font-face {
+    font-family: 'inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Inter-Medium.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Inter-Bold.woff2') format('woff2');
+}
+
+
+
+/* Custom properties */
+:root {
+    --color-text: black;
+    --color-active: black;
+    --color-hover: black;
+    --color-focus: black;
+    --color-visited: black;
+    --color-background: white;
+    --color-button: #00ff0f;
+    --color-border: black;
+    --color-highlight: #00ff0f;
+    --color-imgbackground: white;
+}
+
+/* Dark mode */
+/* Bron: DlO - week 4 - werkgroep 8 */
+@media (prefers-color-scheme:dark) {
+    :root {
+        --color-text: white;
+        --color-active: white;
+        --color-hover: white;
+        --color-focus: white;
+        --color-visited: white;
+        --color-background: #202020;
+        --color-button: #00930a;
+        --color-border: white;
+        --color-highlight: #00930a;
+        --color-imgbackground: white;
+    }
+
+    img {
+        background-color: var(--color-imgbackground);
+        border-radius: 0.1em;
+    }
+}
+
+/* Meer contrast */
+@media (prefers-contrast: more) {
+    :root {
+        --color-text: white;
+        --color-active: white;
+        --color-hover: white;
+        --color-focus: white;
+        --color-visited: white;
+        --color-background: black;
+        --color-button: #7000b1;
+        --color-border: rgb(242, 255, 0);
+        --color-highlight: #7000b1;
+        --color-imgbackground: rgb(242, 255, 0);
+    }
+
+    img {
+        background-color: var(--color-imgbackground);
+        border-radius: 0.1em;
+    }
+
+
+}
+
+
+
+/* Body */
+body {
+    background-color: var(--color-background);
+}
+
+
+
+/* Tekst style */
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+button {
+    font-family: 'inter';
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-text);
+}
+
+h2,
+h3,
+h4,
+p,
+a,
+button {
+    font-size: 1em;
+}
+
+.footerbottom p,
+.footerbottom a {
+    text-transform: uppercase;
+}
+
+p,
+.productgrid h4,
+.newarrivals h4,
+footer a {
+    text-transform: none;
+}
+
+
+
+/* Links style*/
+a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+
+
+/* list style */
+ul {
+    padding: 0em;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+
+/* States */
+
+/* Active state */
+a:active {
+    text-decoration: underline;
+    color: var(--color-active);
+}
+
+button:active,
+form input:active {
+    border: 0.1em solid var(--color-focus);
+    font-weight: 700;
+}
+
+/* Hover state */
+a:hover,
+button:hover,
+form input:hover {
+    text-decoration: underline;
+    font-weight: 700;
+    color: var(--color-hover)
+}
+
+/* Visited state */
+a:visited,
+button:visited,
+form input:visited {
+    color: var(--color-visited);
+    font-weight: 700;
+}
+
+/* Focus state */
+a:focus,
+button:focus {
+    border: 0.1em solid var(--color-focus);
+    padding: 0.2em;
+    font-weight: 700;
+    font-size: 1.1em;
+    outline-color: var(--color-focus);
+}
+
+form input:focus {
+    border: 0.1em solid var(--color-focus);
+    padding: 0.2em;
+    outline-color: var(--color-focus);
+}
+
+
+/* Bron: https://www.a11yproject.com/posts/how-to-hide-content/ */
+/* Visually hidden */
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+}
+
+
+/* Bron: https://www.w3schools.com/accessibility/accessibility_skip_links.php */
+/* Skip link */
+.skip {
+    position: absolute;
+    left: 0em;
+    top: auto;
+    width: 0.06em;
+    height: 0.06em;
+    overflow: hidden;
+}
+
+.skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    padding: 1em;
+    z-index: 1;
+    border-bottom: 0.1em solid var(--color-border);
+    background-color: var(--color-background);
+}
+
+
+/* Bron: DLO - Werkgroep 5 - JS 3-stap - Responsive burgers */
+/* In/uitklap section*/
+nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    translate: -100% 0%;
+    background-color: var(--color-background)
+}
+
+nav:last-of-type.toonMenu {
+    translate: 0% 0%;
+}
+
+
+
+/* Uitklap menu mobiel */
+@media (max-width:64em) {
+    nav ul li {
+        background-color: var(--color-background);
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5em 1em 1.5em 1em;
+        border-bottom: 0.1em solid var(--color-border);
+    }
+
+    nav ul li:nth-child(9) {
+        margin-top: 5.5em;
+        border-bottom: none;
+        border-top: 0.1em solid var(--color-border);
+        padding: 0.5em 0em 0.5em 1em;
+    }
+
+    nav ul li:nth-child(10) {
+        border: none;
+        padding: 0.5em 0em 0.5em 1em;
+    }
+
+    nav ul li:nth-child(11) {
+        padding: 0.5em 0em 0.5em 1em;
+    }
+
+    nav ul li:first-child {
+        display: none;
+    }
+
+    nav ul li:nth-child(2)::after,
+    nav ul li:nth-child(3)::after,
+    nav ul li:nth-child(7)::after,
+    nav ul li:nth-child(8)::after {
+        content: " →";
+    }
+
+    nav ul li:nth-child(8) a {
+        background-color: var(--color-highlight);
+        padding: 0.5em 1em 0.5em 1em;
+        border-radius: 2em;
+    }
+
+    nav ul li button {
+        border: none;
+        background: none;
+    }
+
+    nav ul li:last-child {
+        display: flex;
+        justify-content: center;
+        border: none;
+    }
+
+
+
+    /* Navigatiebalk mobiel */
+    /* Bron: zie bronnenlijst in Readme nummer 6 */
+    header>ul:first-of-type {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+    }
+
+    header>ul li:nth-child(2) {
+        margin-right: auto;
+    }
+
+    header>ul li:nth-child(4) {
+        margin-left: auto;
+    }
+
+    header img {
+        width: 1.8em;
+    }
+
+    header>ul li:nth-child(3) img {
+        width: 3.5em;
+    }
+
+    header>ul:first-of-type button {
+        border: none;
+        background: none;
+    }
+
+    header>ul li:nth-child(5) img {
+        background-color: var(--color-highlight);
+        padding: 0.5em;
+        border-radius: 2em;
+    }
+}
+
+
+
+/* Nav voor desktop scherm */
+/* Bron: zie bronnenlijst in Readme nummer 6 */
+@media (min-width:64em) {
+    header>button {
+        display: none;
+    }
+
+    header>ul:first-of-type {
+        display: none;
+    }
+
+    nav:last-of-type {
+        display: none;
+    }
+
+    nav {
+        position: static;
+        translate: unset;
+        padding: 0;
+        background: none;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 1em;
+        text-wrap: nowrap;
+        align-items: center;
+    }
+
+    nav ul li,
+    nav ul li:nth-child(9),
+    nav ul li:nth-child(10),
+    nav ul li:nth-child(11) {
+        margin: 0em;
+        border: none;
+        padding: 0em;
+    }
+
+    nav ul li:nth-child(9) {
+        margin-left: auto;
+    }
+
+    nav ul li a img {
+        width: 3em;
+    }
+
+    nav ul li:nth-child(8),
+    nav ul li:nth-child(11) {
+        background-color: var(--color-highlight);
+        padding: 0.5em;
+        border-radius: 2em;
+    }
+}
+
+
+
+/* Animatie top & bottom main */
+/* Bron: zie bronnenlijst in Readme nummer 7 */
+.animation {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: slide 10s linear infinite;
+    order: -1;
+}
+
+/* Stijl wordt toegepast als de systeeminstellingen van een gebruiker zijn ingesteld op verminderde beweging */
+@media (prefers-reduced-motion:reduce) {
+    .animation {
+        animation: unset;
+    }
+}
+
+.animation ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+.animation a::before {
+    content: "▪︎ ";
+}
+
+.animation:last-of-type:not(.infocontainer .animation) {
+    font-size: 2em;
+}
+
+
+@keyframes slide {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+
+/* Footer navigatie */
+form input {
+    border: none;
+    border-bottom: 0.1em solid var(--color-border);
+    height: 3em;
+    width: 100%;
+}
+
+form button {
+    border: none;
+    border-radius: 10em;
+    height: 2em;
+    background-color: var(--color-button);
+    margin-top: 1em;
+    width: 100%;
+}
+
+
+
+/* Grid in footer navigatie */
+/* Auto-fit in .bloggrid https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/ */
+/* De kolommen passen zichtzelf aan de beschikbare ruimte, zijn minimaal 15em breed */
+/* "fractional unit" betekent dat de beschikbare ruimte in de gridcontainer wordt verdeeld in gelijke delen. */
+.footergrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-style: solid;
+    border-width: 0.1em 0em 0em;
+    border-color: var(--color-border);
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+}
+
+.footergrid section {
+    border-style: solid;
+    border-width: 0em 0.1em 0.1em 0em;
+    border-color: var(--color-border);
+    background-color: var(--color-background);
+    padding: 1em;
+}
+
+.footergrid h4::before {
+    content: "▪︎ ";
+}
+
+.footergrid li {
+    padding: 0.5em 0em 0em 0em;
+}
+
+.footergrid h4 {
+    padding: 0em 0em 1em 0em;
+}
+
+
+
+/* Onderste balk in footer */
+footer > section:last-child {
+    padding: 1.5em;
+}
+
+footer > section:last-child p,
+footer > section:last-child li {
+    display: inline;
+}
+
+footer > section:last-child a img {
+    margin: 1rem auto 0;
+    width: 1.5em;
+    display: block;
+}
+
+/* Onderste balk in footer - desktop scherm */
+@media (min-width:64em) {
+    footer > section:last-child {
+        display: flex;
+    }
+
+    footer > section:last-child ul {
+        margin-left: auto;
+    }
+
+    footer > section:last-child a img {
+        margin: 0em 0em 0em 1em
+    }
+}
